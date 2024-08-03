@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+    #display {
+      outline: none;
+    }
+  </style>
+  <body class="bg-gray-100">
+    <div class="flex justify-center items-center h-screen">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="border border-gray-300 rounded-lg p-2 mb-4">
+          <input
+            type="text"
+            id="display"
+            class="w-full text-right text-xl font-bold"
+            readonly
+          />
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          <button
+            class="operator bg-gray-200 hover:bg-gray-300 rounded-lg p-4"
+            onclick="appendToDisplay('(')"
+          >
+            (
+          </button>
+          <button
+            class="operator bg-gray-200 hover:bg-gray-300 rounded-lg p-4"
+            onclick="appendToDisplay(')')"
+          >
+            )
+          </button>
+          <button
+            class="operator bg-gray-200 hover:bg-gray-300 rounded-lg p-4"
+            onclick="clearDisplay()"
+          >
+            C
+          </button>
+          <button
+            class="operator bg-gray-200 hover:bg-gray-300 text-black rounded-lg p-4"
+            onclick="appendToDisplay('+')"
+          >
+            +
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('7')"
+          >
+            7
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('8')"
+          >
+            8
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('9')"
+          >
+            9
+          </button>
+          <button
+            class="operator bg-gray-200 hover:bg-gray-300 rounded-lg p-4"
+            onclick="appendToDisplay('/')"
+          >
+            /
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('4')"
+          >
+            4
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('5')"
+          >
+            5
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('6')"
+          >
+            6
+          </button>
+          <button
+            class="operator bg-gray-200 hover:bg-gray-300 rounded-lg p-4"
+            onclick="appendToDisplay('*')"
+          >
+            *
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('1')"
+          >
+            1
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('2')"
+          >
+            2
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('3')"
+          >
+            3
+          </button>
+          <button
+            class="operator bg-gray-200 hover:bg-gray-300 rounded-lg p-4"
+            onclick="appendToDisplay('-')"
+          >
+            -
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('0')"
+          >
+            0
+          </button>
+          <button
+            class="number bg-gray-400 hover:bg-gray-500 text-white rounded-lg p-4"
+            onclick="appendToDisplay('.')"
+          >
+            .
+          </button>
+          <button
+            class="operator bg-orange-400 hover:bg-orange-600 text-white text-lg rounded-lg p-4 col-span-2"
+            onclick="calculate()"
+          >
+            =
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function appendToDisplay(value) {
+        document.getElementById("display").value += value;
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
+
+      function calculate() {
+        try {
+          let result = eval(document.getElementById("display").value);
+          document.getElementById("display").value = result;
+        } catch (error) {
+          document.getElementById("display").value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
